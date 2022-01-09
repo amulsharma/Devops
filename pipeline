@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                kubectl run nginx --image=nginx
+                sleep 5
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                kubectl get pods | grep -i nginx
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}

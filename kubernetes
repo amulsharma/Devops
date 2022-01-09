@@ -1,0 +1,8 @@
+node("worker") {
+    timeout(unit: 'SECONDS', time: 5) {
+        stage("Test"){
+            sleep 2
+            echo 'Amul'
+        }
+    }
+}

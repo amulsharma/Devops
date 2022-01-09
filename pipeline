@@ -5,14 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                kubectl run nginx --image=nginx
+                sh  'kubectl run nginx --image=nginx'
                 sleep 5
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                kubectl get pods 
+                sh 'kubectl get pods | grep -i nginx'
             }
         }
         stage('Deploy') {

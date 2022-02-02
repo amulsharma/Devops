@@ -4,7 +4,10 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build'
-        sh 'myscrpt.sh'
+        node(label: 'master') {
+          sh '/root/Devops/myscrpt.sh'
+        }
+
       }
     }
 

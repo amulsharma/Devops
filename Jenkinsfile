@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build'
-        sh 'jenkins/build.sh'
+        sh 'myscrpt.sh'
       }
     }
 
